@@ -46,7 +46,7 @@ export default function QuizForm() {
   }
 
   return (
-    <form className="flex flex-col mt-8 max-w-xs" action={createQuiz}>
+    <form className="flex flex-col mt-8 max-w-2xl" action={createQuiz}>
       <h3 className="text-lg font-semibold">Create Quiz</h3>
       <label>
         Title
