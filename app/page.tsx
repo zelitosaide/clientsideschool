@@ -6,7 +6,6 @@ const sql = postgres(process.env.DATABASE_URL!);
 
 async function Quizzes() {
   const quizzes = await sql`SELECT * FROM quizzes`;
-  console.log(quizzes);
   return (
     <ul>
       {quizzes.map((quiz) => (
