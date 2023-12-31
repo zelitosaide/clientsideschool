@@ -1,14 +1,17 @@
-import postgres from "postgres";
+// import postgres from "postgres";
+import { sql } from "@vercel/postgres";
 import Link from "next/link";
 import Footer from "./footer";
+import QuizForm from "./quiz-form";
 
-const sql = postgres(process.env.DATABASE_URL!);
+// const sql = postgres(process.env.DATABASE_URL!);
 
 async function Quizzes() {
   const quizzes = await sql`SELECT * FROM quizzes`;
   return (
     <ul>
-      {quizzes.map((quiz) => (
+      {/* {quizzes.map((quiz) => ( */}
+      {quizzes.rows.map((quiz) => (
         <li key={quiz.id} className="underline">
           <Link href={`/quiz/${quiz.id}`}>{quiz.title}</Link>
         </li>
@@ -22,6 +25,7 @@ export default function Home() {
     <section>
       <h1>All Quizzes</h1>
       <Quizzes />
+      <QuizForm />
       <Footer />
     </section>
   );
