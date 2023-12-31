@@ -3,6 +3,7 @@ import { sql } from "@vercel/postgres";
 import Link from "next/link";
 import Footer from "./footer";
 import QuizForm from "./quiz-form";
+import Header from "./header";
 
 // const sql = postgres(process.env.DATABASE_URL!);
 
@@ -23,6 +24,7 @@ async function Quizzes() {
 export default function Home() {
   return (
     <section>
+      <Header />
       <h1>All Quizzes</h1>
       <Quizzes />
       <QuizForm />
